@@ -1,0 +1,1225 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rendi Febrian | Personal Website</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #080c16;
+  --bg2: #0d1423;
+  --card: #111a2c;
+  --text: #edf3ff;
+  --muted: #96a4bc;
+  --blue: #68a5ff;
+  --cyan: #65e0ff;
+  --border: rgba(255,255,255,.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(49,116,255,.12), transparent 35%),
+    radial-gradient(circle at 85% 65%, rgba(0,215,255,.07), transparent 35%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8,12,22,.78);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+.menu-btn {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 70px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #8ebcff;
+  font-size: 12px;
+  padding: 9px 14px;
+  border: 1px solid rgba(104,165,255,.25);
+  border-radius: 100px;
+  background: rgba(104,165,255,.07);
+  margin-bottom: 25px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #6de5a1;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #6de5a1;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 1.04;
+  letter-spacing: -4px;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #74aaff, #66e3ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 540px;
+  line-height: 1.9;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #5798ff, #3976ec);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(63,126,255,.25);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: white;
+}
+
+.btn-outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.hero-image {
+  position: relative;
+  max-width: 370px;
+  margin: auto;
+}
+
+.hero-image img {
+  height: 440px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  filter: saturate(.8);
+}
+
+.image-frame {
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid rgba(104,165,255,.35);
+  border-radius: 24px;
+  z-index: -1;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: rgba(8,12,22,.75);
+  backdrop-filter: blur(15px);
+}
+
+.hero-caption h3 {
+  font-size: 14px;
+}
+
+.hero-caption p {
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+/* SECTION */
+section {
+  padding: 100px 0;
+}
+
+.section-head {
+  margin-bottom: 45px;
+}
+
+.section-tag {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-head h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+  letter-spacing: -1.5px;
+}
+
+.section-head p {
+  color: var(--muted);
+  margin-top: 13px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 35px;
+}
+
+.about-photo {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.about-photo img {
+  height: 400px;
+  transition: .6s;
+}
+
+.about-photo:hover img {
+  transform: scale(1.04);
+}
+
+.about-text {
+  padding: 30px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.about-text h3 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.about-text p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 14px;
+}
+
+.info-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.info-item {
+  padding: 15px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.info-item small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.info-item strong {
+  font-size: 13px;
+}
+
+/* EDUCATION */
+.education {
+  background: linear-gradient(180deg, transparent, rgba(17,26,44,.4), transparent);
+}
+
+.timeline {
+  position: relative;
+  max-width: 850px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(var(--blue), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 35px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 12px;
+  top: 25px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 20px rgba(104,165,255,.5);
+  border: 3px solid var(--bg);
+}
+
+.school-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.school-card:hover {
+  transform: translateX(6px);
+  border-color: rgba(104,165,255,.4);
+}
+
+.school-card img {
+  height: 100%;
+  min-height: 190px;
+}
+
+.school-info {
+  padding: 24px;
+}
+
+.school-info .year {
+  color: var(--blue);
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+
+.school-info h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.school-info p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* HOBBY */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.hobby-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.hobby-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(104,165,255,.4);
+}
+
+.hobby-card img {
+  height: 190px;
+  transition: .5s;
+}
+
+.hobby-card:hover img {
+  transform: scale(1.05);
+}
+
+.hobby-content {
+  padding: 20px;
+}
+
+.hobby-content h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.hobby-content p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* EXPERIENCE */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.experience-card {
+  display: flex;
+  gap: 17px;
+  align-items: flex-start;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--card);
+  transition: .3s;
+}
+
+.experience-card:hover {
+  border-color: rgba(104,165,255,.35);
+  transform: translateY(-4px);
+}
+
+.experience-icon {
+  min-width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  background: rgba(104,165,255,.1);
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.experience-card h3 {
+  font-size: 15px;
+  margin-bottom: 9px;
+}
+
+.experience-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* GALLERY */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 15px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 16px;
+  position: relative;
+  border: 1px solid var(--border);
+}
+
+.gallery-item:nth-child(2) {
+  grid-row: span 2;
+}
+
+.gallery-item:nth-child(5) {
+  grid-column: span 2;
+}
+
+.gallery-item img {
+  height: 100%;
+  transition: .6s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-label {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 18px;
+  background: linear-gradient(transparent, rgba(0,0,0,.8));
+  font-size: 13px;
+}
+
+/* DREAM */
+.dream-box {
+  position: relative;
+  padding: 55px;
+  border: 1px solid rgba(104,165,255,.2);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(104,165,255,.16), transparent 50%),
+    var(--card);
+  overflow: hidden;
+}
+
+.dream-box h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.dream-box p {
+  max-width: 750px;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--muted);
+}
+
+.dream-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.dream-tags span {
+  border: 1px solid var(--border);
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 12px;
+  color: #b4ccf9;
+  background: rgba(255,255,255,.025);
+}
+
+/* FOOTER */
+footer {
+  padding: 30px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.back-top {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--blue);
+  transition: .3s;
+}
+
+.back-top:hover {
+  background: rgba(104,165,255,.1);
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:850px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .hero-image {
+    max-width: 320px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo img {
+    height: 320px;
+  }
+
+  .hobby-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .school-card {
+    grid-template-columns: 170px 1fr;
+  }
+}
+
+@media(max-width:600px) {
+  .nav-links {
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    display: none;
+    flex-direction: column;
+    gap: 22px;
+    background: #0b1120;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  section {
+    padding: 75px 0;
+  }
+
+  .hobby-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .hobby-card img {
+    height: 140px;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .school-card {
+    grid-template-columns: 1fr;
+  }
+
+  .school-card img {
+    height: 180px;
+    min-height: auto;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 170px;
+  }
+
+  .gallery-item:nth-child(2) {
+    grid-row: span 2;
+  }
+
+  .gallery-item:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .dream-box {
+    padding: 30px 22px;
+  }
+
+  .dream-box h2 {
+    font-size: 28px;
+  }
+
+  .info-list {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">RF<span>.</span></a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#hobby">Hobbies</a></li>
+      <li><a href="#experience">Memories</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#dream">Future</a></li>
+    </ul>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container hero-content">
+
+    <div class="hero-text reveal">
+      <div class="badge">
+        <span class="dot"></span>
+        Student • XII TKJ
+      </div>
+
+      <h1>Hello,<br>I'm <span>Rendi<br>Febrian.</span></h1>
+
+      <p>
+        Seorang pelajar yang suka mengeksplorasi hal baru,
+        tertarik pada teknologi, kreativitas, dan perjalanan
+        untuk menemukan versi terbaik dari diri sendiri.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">Kenali Saya</a>
+        <a href="#gallery" class="btn btn-outline">Lihat Galeri ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-image reveal">
+      <!-- GANTI FOTO PROFIL -->
+      <img
+        src="https://i.ibb.co.com/3y1cnZRR/IMG-20261119-WA0018.jpg"
+        alt="Foto profil">
+      <div class="image-frame"></div>
+
+      <div class="hero-caption">
+        <h3>Rendi Febrian</h3>
+        <p>Pelajar </p>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="section-tag">01 — About Me</div>
+      <h2>Tentang Saya.</h2>
+      <p>Kenali sedikit tentang siapa saya dan apa yang saya sukai.</p>
+    </div>
+
+    <div class="about-grid reveal">
+      <div class="about-photo">
+        <!-- GANTI FOTO DIRI -->
+        <img
+          src="https://i.ibb.co.com/vr7gmzH/IMG-20261119-WA0019.jpg"
+          alt="Foto tentang saya">
+      </div>
+
+      <div class="about-text">
+        <h3>Growing, Learning & Exploring.</h3>
+
+        <p>
+          Saya adalah seorang pelajar yang masih terus belajar,
+          berkembang, dan mencoba hal-hal baru. Saya memiliki
+          rasa ingin tahu yang cukup tinggi dan suka mengeksplorasi
+          sesuatu yang menarik.
+        </p>
+
+        <p>
+          Bagi saya, setiap pengalaman adalah kesempatan untuk belajar,
+          memperbaiki diri, dan menjadi pribadi yang lebih baik.
+          Saya percaya masa depan dibangun dari usaha, pengalaman,
+          dan keberanian untuk terus melangkah.
+        </p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <small>Nama</small>
+            <strong>Rendi Febrian</strong>
+          </div>
+
+          <div class="info-item">
+            <small>Tempat, Tanggal Lahir</small>
+            <strong>Sukabumi, 02 Februari 2008</strong>
+          </div>
+
+          <div class="info-item">
+            <small>Alamat</small>
+            <strong>Desa Cihaur, Sukabumi</strong>
+          </div>
+
+          <div class="info-item">
+            <small>Pendidikan</small>
+            <strong>XII Teknik Komputer & Jaringan</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="section-tag">02 — Education</div>
+      <h2>My Education.</h2>
+      <p>Perjalanan pendidikan yang menjadi bagian dari proses tumbuh saya.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+
+        <div class="school-card">
+          <!-- FOTO SD -->
+          <img
+            src="https://i.ibb.co.com/HpVPRw6Y/IMG-20261119-WA0019.jpg"
+            alt="Sekolah Dasar">
+
+          <div class="school-info">
+            <div class="year">Elementary School</div>
+            <h3>SDN Bojong Asih</h3>
+            <p>
+              Awal perjalanan pendidikan saya, tempat mengenal
+              banyak hal, belajar, bermain, dan membangun
+              kenangan masa kecil.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+
+        <div class="school-card">
+          <!-- FOTO SMP -->
+          <img
+            src="https://i.ibb.co.com/8ZSQ1Yc/IMG-20261119-WA0020.jpg"
+            alt="Sekolah Menengah Pertama">
+
+          <div class="school-info">
+            <div class="year">Junior High School</div>
+            <h3>SMPN 2 Simpenan</h3>
+            <p>
+              Masa belajar, mengenal lingkungan baru,
+              membangun pertemanan, dan mendapatkan
+              pengalaman yang berharga.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+
+        <div class="school-card">
+          <!-- FOTO SMK -->
+          <img
+            src="https://i.ibb.co.com/sJwyDC54/IMG-20261119-WA0018.jpg"
+            alt="Sekolah Menengah Kejuruan">
+
+          <div class="school-info">
+            <div class="year">Vocational High School</div>
+            <h3>SMK Bina Anak Bangsa</h3>
+            <p>
+              Saat ini saya menempuh pendidikan di jurusan
+              Teknik Komputer dan Jaringan (TKJ), mempelajari
+              komputer, jaringan, dan teknologi.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobby">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="section-tag">03 — Interests</div>
+      <h2>Things I Love.</h2>
+      <p>Beberapa hal yang saya sukai dan menjadi bagian dari keseharian.</p>
+    </div>
+
+    <div class="hobby-grid">
+
+      <div class="hobby-card reveal">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=85" alt="Musik">
+        <div class="hobby-content">
+          <h3>🎧 Music</h3>
+          <p>Mendengarkan musik untuk menemani suasana hati dan waktu santai.</p>
+        </div>
+      </div>
+
+      <div class="hobby-card reveal">
+        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=85" alt="Fotografi">
+        <div class="hobby-content">
+          <h3>📷 Photography</h3>
+          <p>Mengabadikan momen, suasana, dan hal menarik melalui foto.</p>
+        </div>
+      </div>
+
+      <div class="hobby-card reveal">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=85" alt="Gaming">
+        <div class="hobby-content">
+          <h3>🎮 Gaming</h3>
+          <p>Menikmati permainan sebagai hiburan di waktu luang.</p>
+        </div>
+      </div>
+
+      <div class="hobby-card reveal">
+        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=85" alt="Editing">
+        <div class="hobby-content">
+          <h3>🎬 Editing</h3>
+          <p>Menyalurkan kreativitas melalui editing foto dan video.</p>
+        </div>
+      </div>
+
+      <div class="hobby-card reveal">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=85" alt="Teknologi">
+        <div class="hobby-content">
+          <h3>💻 Technology</h3>
+          <p>Mengeksplorasi komputer, jaringan, dan perkembangan teknologi.</p>
+        </div>
+      </div>
+
+      <div class="hobby-card reveal">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=85" alt="Coding">
+        <div class="hobby-content">
+          <h3>🌐 Digital World</h3>
+          <p>Mengenal dunia digital dan mencoba hal baru yang menarik.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="section-tag">04 — Memories</div>
+      <h2>My Experiences.</h2>
+      <p>Pengalaman sederhana yang menyimpan cerita dan pelajaran.</p>
+    </div>
+
+    <div class="experience-grid">
+
+      <div class="experience-card reveal">
+        <div class="experience-icon">👥</div>
+        <div>
+          <h3>Friendship</h3>
+          <p>Kebersamaan dengan teman, berbagi cerita, bercanda, dan menciptakan kenangan yang sulit dilupakan.</p>
+        </div>
+      </div>
+
+      <div class="experience-card reveal">
+        <div class="experience-icon">🏫</div>
+        <div>
+          <h3>School Moments</h3>
+          <p>Berbagai kegiatan sekolah, proses belajar, dan pengalaman yang membentuk diri saya.</p>
+        </div>
+      </div>
+
+      <div class="experience-card reveal">
+        <div class="experience-icon">🌄</div>
+        <div>
+          <h3>Journey</h3>
+          <p>Perjalanan ke tempat menarik, menikmati suasana baru, dan mengumpulkan cerita dari setiap tempat.</p>
+        </div>
+      </div>
+
+      <div class="experience-card reveal">
+        <div class="experience-icon">💼</div>
+        <div>
+          <h3>Internship / PKL</h3>
+          <p>Belajar mengenal dunia kerja, mendapatkan pengalaman baru, dan memahami pentingnya tanggung jawab.</p>
+        </div>
+      </div>
+
+      <div class="experience-card reveal">
+        <div class="experience-icon">🏡</div>
+        <div>
+          <h3>Family</h3>
+          <p>Momen sederhana bersama keluarga yang selalu menjadi bagian berharga dalam kehidupan.</p>
+        </div>
+      </div>
+
+      <div class="experience-card reveal">
+        <div class="experience-icon">✨</div>
+        <div>
+          <h3>Life Lessons</h3>
+          <p>Setiap pengalaman memberikan pelajaran untuk terus berkembang dan melangkah ke depan.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="section-tag">05 — Gallery</div>
+      <h2>Captured Moments.</h2>
+      <p>Beberapa potongan momen, suasana, dan cerita dalam perjalanan hidup.</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <img src="https://i.ibb.co.com/tMmv0PP3/IMG-20261119-WA0005.jpg" alt="Perjalanan">
+        <div class="gallery-label">Little Journey</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://i.ibb.co.com/QhJYDph/IMG-20261119-WA0006.jpg" alt="Pemandangan alam">
+        <div class="gallery-label">City Lights</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://i.ibb.co.com/DD27x1Gd/IMG-20261119-WA0007.jpg" alt="Kota">
+        <div class="gallery-label">Beach</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://i.ibb.co.com/G3fX410k/IMG-20261119-WA0004.jpg" alt="Sunset">
+        <div class="gallery-label">Sunset</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://i.ibb.co.com/cc5yV0WZ/IMG-20261119-WA0002.jpg" alt="Langit">
+        <div class="gallery-label">waterfall</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE -->
+<section id="dream">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="section-tag">06 — Future</div>
+      <h2>Dream & Ambition.</h2>
+      <p>Hal yang ingin saya capai dan wujudkan di masa depan.</p>
+    </div>
+
+    <div class="dream-box reveal">
+      <h2>Building My Own Future.</h2>
+
+      <p>
+        Saya ingin menjadi orang sukses, memiliki usaha sendiri,
+        dan meraih pekerjaan yang sesuai dengan minat serta kemampuan saya.
+        Saya tertarik pada dunia perkantoran, industri, dan teknologi
+        karena bidang tersebut memiliki banyak peluang untuk berkembang,
+        belajar, serta membangun masa depan.
+        <br><br>
+        Saya berharap suatu saat bisa menjadi pribadi yang mandiri,
+        memiliki karier yang baik, membanggakan keluarga,
+        dan mampu mencapai tujuan yang selama ini saya impikan.
+      </p>
+
+      <div class="dream-tags">
+        <span>Entrepreneur</span>
+        <span>Technology</span>
+        <span>Industry</span>
+        <span>Office Career</span>
+        <span>Success</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <a href="#home" class="logo">RF<span>.</span></a>
+      <p style="margin-top:10px;">© 2026 Rendi Febrian. Personal Website.</p>
+    </div>
+
+    <p>Made with curiosity & dreams.</p>
+
+    <a href="#home" class="back-top" title="Kembali ke atas">↑</a>
+  </div>
+</footer>
+
+<script>
+// MOBILE MENU
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+  menuBtn.innerHTML = navLinks.classList.contains("show") ? "✕" : "☰";
+});
+
+// CLOSE MENU WHEN LINK CLICKED
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+    menuBtn.innerHTML = "☰";
+  });
+});
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+// NAVBAR BACKGROUND ON SCROLL
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector("nav");
+
+  if (window.scrollY > 50) {
+    navbar.style.background = "rgba(8,12,22,.96)";
+  } else {
+    navbar.style.background = "rgba(8,12,22,.78)";
+  }
+});
+</script>
+
+</body>
+</html>
